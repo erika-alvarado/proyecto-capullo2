@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg.png" alt="Logo" class="logo">
+            <span class="brand-name">Capullo</span>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="tips.html">Tips</a>
+                </li>
+                <li><a href="metodos.html">Metodos anticonceptivos</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="iniciarSesion.html">Iniciar Sesion</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="parrafo-container" >
+        <h1>Calendario Menstrual</h1>
+        <form id="configuracion-ciclo">
+            <label for="duracion-ciclo">Duración del ciclo (días):</label>
+            <input type="number" id="duracion-ciclo" value="28" min="21" max="35" required>
+            <button type="button" id="aplicar-configuracion">Aplicar configuración</button>
+        </form>
+
+        <div class="calendario" id="calendar"></div>
+       
+       <div>
+        <div class="parrafo-container">
+        /!-- Apartado de informacion ce
+        <h1>Te explicaremos tu ciclo menstrual, dias de ovulacion y tus probabilidades de un embarazo.</h1>
+        <p>Cuando vas comenzando tu ciclo no estara muy puntual por asi decirlo, es decir puede durar 5 o 7 dias.  Y no siempre te bajara los mismos dias del mes ya que tu ciclo tendra a ser asi cuando tu comienzas con esta nueva etapa.
+            Eso si tu ciclo debe de ser cada 28 dias del mes ya sea que te baje ya sea a principios del mes, a mitad del mes o finales del mes pero que te baje si o si.
+        </p>
+        <P>Ejemplo de tu ciclo: Si te baja el dia primero del mes y eres primeriza en tu ciclo te durara 5 dias o hasta 7 recuerda es nromal por que vas empezando. Despues tendras 6 dias infertiles es decir tus probabilidades de quedar embarazada seran muy bajas y no correras algun riesgo como tal.
+            Luego tendras 5 dias fertiles aquí tus probabilidades de un embarazo seran muy altas, en este punto debes de cuidarte si tienes una vida sexualmente activa y asi evitar algun embarazo.
+        </P>
+        <p>Los cambios que generan la menstruacion son el aumento de senos, caderas, gluteos, piernas, etc. Cada cuerpo reacciona distinto y los cambios no siempre son los mismos en algunas ocasiones son muy diferentes.</p>
+        </div>
+     </div>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+        <script>
+           document.addEventListener('DOMContentLoaded', function () {
+    const calendarEl = document.getElementById('calendar');
+    const configForm = document.getElementById('configuracion-ciclo');
+    const duracionInput = document.getElementById('duracion-ciclo');
+
+    // Inicializar el calendario
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        selectable: true,
+        select: function (info) {
+            const duracionCiclo = parseInt(duracionInput.value) || 28; // Valor por defecto si el input está vacío
+            calcularFechas(info.start, duracionCiclo, calendar);
+        },
+        events: [],
+    });
+
+    calendar.render();
+
+    // Manejar la aplicación de la configuración (opcional)
+    document.getElementById('aplicar-configuracion').addEventListener('click', function () {
+        alert('Duración del ciclo actualizada a ' + duracionInput.value + ' días.');
+    });
+});
+
+// Función para calcular las fechas
+function calcularFechas(fechaInicio, cicloDuracion, calendar) {
+    const menstruacionDuracion = 5; // Días de duración de la menstruación
+    const ovulacionDia = Math.floor(cicloDuracion / 2); // Día de la ovulación en el ciclo
+    const ciclosMeses = 3; // Número de ciclos (en meses) que queremos calcular
+
+    // Bucle para calcular cada ciclo
+    for (let i = 0; i < ciclosMeses; i++) {
+        const cicloInicio = new Date(fechaInicio);
+        cicloInicio.setDate(fechaInicio.getDate() + i * cicloDuracion);
+
+        // Fecha de fin de menstruación
+        const fechaFinMenstruacion = new Date(cicloInicio);
+        fechaFinMenstruacion.setDate(cicloInicio.getDate() + menstruacionDuracion - 1);
+
+        // Fecha de ovulación
+        const fechaOvulacion = new Date(cicloInicio);
+        fechaOvulacion.setDate(cicloInicio.getDate() + ovulacionDia - 1);
+
+        // Días fértiles (alrededor de la ovulación)
+        const inicioFertilidad = new Date(fechaOvulacion);
+        inicioFertilidad.setDate(fechaOvulacion.getDate() - 2); // Dos días antes
+        const finFertilidad = new Date(fechaOvulacion);
+        finFertilidad.setDate(fechaOvulacion.getDate() + 2); // Dos días después
+
+        // Agregar eventos al calendario
+        calendar.addEvent({
+            title: 'Menstruación',
+            start: cicloInicio.toISOString().split('T')[0],
+            end: fechaFinMenstruacion.toISOString().split('T')[0],
+            backgroundColor: '#ff4d4d',
+            borderColor: '#ff4d4d',
+        });
+
+        calendar.addEvent({
+            title: 'Ovulación',
+            start: fechaOvulacion.toISOString().split('T')[0],
+            backgroundColor: '#4da6ff',
+            borderColor: '#4da6ff',
+        });
+
+        calendar.addEvent({
+            title: 'Días fértiles',
+            start: inicioFertilidad.toISOString().split('T')[0],
+            end: finFertilidad.toISOString().split('T')[0],
+            backgroundColor: '#ffd54d',
+            borderColor: '#ffd54d',
+        });
+    }
+
+    alert('Fechas calculadas y añadidas al calendario para los próximos tres meses.');
+}
+
+
+        </script>
+</body>
+</html>

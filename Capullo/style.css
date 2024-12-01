@@ -1,0 +1,362 @@
+/* Reseteo de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Contenedor del logo y nombre */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 30px; /* Tamaño ajustable del logo */
+    height: auto;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 300;
+    color: #333;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Estilo del menú */
+.menu {
+    background-color: transparent;
+    padding: 0;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.menu li {
+    position: relative;
+    margin: 0 20px;
+}
+
+.menu a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 12px 20px;
+    display: block;
+    font-weight: 400;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.menu a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .menu li {
+        width: 100%;
+        text-align: left;
+        margin: 0;
+    }
+
+    .menu a {
+        padding: 12px 30px;
+        font-size: 16px;
+        width: 100%;
+    }
+}
+/*Fin del codigo del menu */
+
+
+/*Primer div de informacion */
+   /* Estilos generales */
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Contenedor principal que tiene la imagen y la información */
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la sección de la imagen */
+.imagen {
+    width: 40%;
+}
+
+.imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la sección de la información */
+.informacion {
+    width: 55%;
+}
+
+.informacion h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.informacion p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/*Segunda informacion*/
+
+ /* Estilos de tips */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Contenedor principal que tiene la información y la imagen */
+.contenedor-invertido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la sección de la información (izquierda) */
+.informacion-invertida {
+    width: 55%;
+}
+
+.informacion-invertida h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.informacion-invertida p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Estilos para la sección de la imagen (derecha) */
+.imagen-invertida {
+    width: 40%;
+}
+
+.imagen-invertida img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+    /* Estilos generales */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    /* Estilo para el contenedor principal */
+    .contenedor-tips {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilo para el encabezado */
+    h1 {
+        text-align: center;
+        color: #d23669;
+    }
+
+    /* Estilo para la sección de tips */
+    .tips {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Estilo para cada tip */
+    .tip {
+        background-color: #f9f9f9;
+        border-left: 5px solid #d23669;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .tip h2 {
+        color: #d23669;
+        margin-bottom: 10px;
+    }
+
+    .tip p {
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* Estilo para la imagen destacada (opcional) */
+    .imagen-destacada {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .imagen-destacada img {
+        max-width: 40%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+    /*estilos de Metodos anticonceptivos*/
+
+
+
+     /* Estilos generales */
+     body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    /* Estilo para el contenedor principal */
+    .contenedor-principal {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Encabezado */
+    h1 {
+        text-align: center;
+        color: #0e0508;
+    }
+
+    /* Estilo para la sección de Métodos Anticonceptivos */
+    .metodos-anticonceptivos {
+        margin-bottom: 40px;
+    }
+
+    .metodos-anticonceptivos h2 {
+        color: #d23669;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .metodos-anticonceptivos p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* Estilo para la sección de Enfermedades de Transmisión Sexual */
+    .enfermedades-transmision {
+        margin-bottom: 40px;
+    }
+
+    .enfermedades-transmision h2 {
+        color: #d23669;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .enfermedades-transmision p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* Estilo para los títulos de cada apartado */
+    h2 {
+        font-size: 1.8rem;
+        color: #333;
+    }
+
+    /* Estilo para los párrafos */
+    p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    /*Estilo para los parrafos del calendario*/
+    .parrafo-container
+    h1{
+        font-size: 1.8rem;
+        color: #555;
+    }
+    p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .calendario{
+        width: 50%;
+        text-align: center;
+    }
+    
